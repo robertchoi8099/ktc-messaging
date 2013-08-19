@@ -11,6 +11,13 @@ class ::Chef::Recipe
   include ::Openstack
 end
 
+class ::Chef::Recipe
+  include ::KTCUtils
+end
+
+d = get_openstack_service_template(get_interface_address("management"), "5672")
+register_service("rabbitmq", d)
+
 iface = node.default["interface_mapping"]["management"]
 
 #node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
