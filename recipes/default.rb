@@ -16,7 +16,7 @@ class ::Chef::Recipe
 end
 
 d = get_openstack_service_template(get_interface_address("management"), "5672")
-register_service("rabbitmq", d)
+register_member("rabbitmq", d)
 
 iface = node.default["interface_mapping"]["management"]
 
