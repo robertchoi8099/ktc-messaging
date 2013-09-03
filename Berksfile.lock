@@ -9,7 +9,9 @@
       "ref": "5ae2bacf22b29875f8291320ac8047c2b6780185"
     },
     "ktc-utils": {
-      "path": "../ktc-utils"
+      "locked_version": "0.2.1",
+      "git": "git://github.com/cloudware-cookbooks/ktc-utils.git",
+      "ref": "e4ef1d2dd57a8a365111e24f47f357dde321c072"
     },
     "openstack-common": {
       "locked_version": "0.4.3",
@@ -20,6 +22,9 @@
       "locked_version": "7.0.0",
       "git": "git://github.com/stackforge/cookbook-openstack-ops-messaging.git",
       "ref": "d57a3c64e09cd5e5ce7bcbf0cb84c9bbf67cab9a"
+    },
+    "users": {
+      "locked_version": "1.1.4"
     },
     "etcd": {
       "locked_version": "1.2.3"
