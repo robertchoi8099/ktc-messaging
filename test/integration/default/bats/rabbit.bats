@@ -1,9 +1,9 @@
 # vim: ft=sh:
 
 @test "rabbit registered with etcd" {
-  wget http://localhost:4001/v1/keys/services/rabbitmq/members
+   wget http://127.0.0.1:4001/v1/keys/services/rabbitmq/members
 }
 
 @test "rabbit is running" {
-  rabbitmqctl status | grep pid
+  /usr/sbin/rabbitmqctl status | grep pid
 }

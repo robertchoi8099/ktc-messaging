@@ -7,14 +7,25 @@
 # All rights reserved - Do Not Redistribute
 #
 
-class ::Chef::Recipe
-  include ::KTCUtils
-end
+include_recipe "services"
+include_recipe "ktc-utils"
 
-d = get_openstack_service_template(get_interface_address("management"), "5672")
-register_member("rabbitmq", d)
+iface = KTC::Network.if_lookup "management"
+ip = KTC::Network.address "management"
 
-iface = node.default["interface_mapping"]["management"]
+Services::Connection.new run_context: run_context
+member = Services::Member.new node.fqdn,
+  service: "rabbitmq",
+  port: 5672,
+  proto: "tcp",
+  ip: ip
+
+member.save
+
+#d = get_openstack_service_template(get_interface_address("management"), "5672")
+#register_member("rabbitmq", d)
+
+#iface = node.default["interface_mapping"]["management"]
 
 node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
 # This attribute tells rabbit which interface to bind to
@@ -25,7 +36,7 @@ end
 
 # these attibutes are searched for by openstack-network and openstack-storage 
 # to find the rabbit instance 
-node.default["queue"]["host"] = address_for iface
+node.default["queue"]["host"] = ip
 node.default["queue"]["port"] = "5672"
 
 # necessary so other node can access those attributes via chef search
