@@ -8,10 +8,6 @@
 #
 
 class ::Chef::Recipe
-  include ::Openstack
-end
-
-class ::Chef::Recipe
   include ::KTCUtils
 end
 
@@ -20,9 +16,12 @@ register_member("rabbitmq", d)
 
 iface = node.default["interface_mapping"]["management"]
 
-#node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
+node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
 # This attribute tells rabbit which interface to bind to
 node.override["openstack"]["mq"]["bind_interface"] = iface
+if node["ha_disabled"].nil?
+  node.override["openstack"]["mq"]["cluster"] = "true"
+end
 
 # these attibutes are searched for by openstack-network and openstack-storage 
 # to find the rabbit instance 
