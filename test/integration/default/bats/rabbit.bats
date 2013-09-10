@@ -1,7 +1,7 @@
 # vim: ft=sh:
 
 @test "rabbit registered with etcd" {
-   wget http://127.0.0.1:4001/v1/keys/services/rabbitmq/members
+   curl -L http://127.0.0.1:4001/v1/keys/services/rabbitmq/members
 }
 
 @test "rabbit is running" {
