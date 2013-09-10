@@ -9,4 +9,5 @@ version          '0.1.0'
 depends "ktc-utils", "~> 0.3.1"
 depends "openstack-common", "~> 0.4.3"
 depends "openstack-ops-messaging", "~> 7.0.0"
+depends "services", "~> 1.0.6"
 depends "users", "~> 1.1.4"
