@@ -25,7 +25,7 @@ member.save
 node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
 # This attribute tells rabbit which interface to bind to
 node.override["openstack"]["mq"]["bind_interface"] = iface
-if node.default["ha_disabled"].nil?
+if node["ha_disabled"].nil?
   node.override["openstack"]["mq"]["cluster"] = "true"
 end
 
