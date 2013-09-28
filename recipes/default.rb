@@ -27,10 +27,22 @@ node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
 node.override["openstack"]["mq"]["bind_interface"] = iface
 if node["ha_disabled"].nil?
   node.override["openstack"]["mq"]["cluster"] = "true"
+  %w/
+    block-storage
+    compute
+    dashboard
+    identity
+    image
+    metering
+    network
+    volume
+  /.each do |s|
+    node.set['openstack'][s]['rabbit']['ha'] = true
+  end
 end
 
-# these attibutes are searched for by openstack-network and openstack-storage 
-# to find the rabbit instance 
+# these attibutes are searched for by openstack-network and openstack-storage
+# to find the rabbit instance
 node.default["queue"]["host"] = ip
 node.default["queue"]["port"] = "5672"
 
