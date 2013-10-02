@@ -40,6 +40,9 @@ if node["ha_disabled"].nil?
     node.set['openstack'][s]['rabbit']['ha'] = true
   end
 end
+# Use the latest version
+# Override the attr overridden in the stackforge cookbook
+node.force_override['rabbitmq']['use_distro_version'] = false
 
 # these attibutes are searched for by openstack-network and openstack-storage
 # to find the rabbit instance
