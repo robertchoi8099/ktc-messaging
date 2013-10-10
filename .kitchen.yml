@@ -11,13 +11,11 @@ platforms:
   driver_config:
     box: opscode-ubuntu-12.04_chef-11.4.4
     box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.4.box
-  run_list:
-    - recipe[ubuntu]
 
 suites:
 - name: default
   run_list:
-    - recipe[curl]
+    - recipe[ktc-testing]
     - recipe[ktc-etcd]
     - recipe[ktc-messaging]
   attributes:
