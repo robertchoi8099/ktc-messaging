@@ -13,6 +13,5 @@ cookbook 'services', github: 'spheromak/services-cookbook'
 cookbook 'yum', github: 'spheromak/yum', branch: 'integration'
 
 group :integration do
-  cookbook 'curl'
-  cookbook 'ubuntu'
+  cookbook 'ktc-testing', github: 'cloudware-cookbooks/ktc-testing'
 end
