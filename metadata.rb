@@ -4,7 +4,7 @@ maintainer_email 'wil.reichert@kt.com'
 license          'All rights reserved'
 description      'Installs/Configures ktc-messaging'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '1.0.1'
+version '1.0.2'
 
 depends "ktc-utils", "> 0.3.1"
 depends "openstack-common", "~> 0.4.3"
