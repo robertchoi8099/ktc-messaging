@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/chrisroberts/vagabond.git
-  revision: a599a2adc783361000a79859d5a1da4d6e54acf5
+  revision: 47a657bf45f41f951c84e82b73fe6bc619eec109
   branch: develop
   specs:
     vagabond (0.2.9)
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: git://github.com/opscode/test-kitchen.git
-  revision: a865ebe6ced2ba7b518b005fed51dc78bb2d1df1
+  revision: dcece4118da0b86bed1d7243a42e84a7a2b53776
   specs:
     test-kitchen (1.0.0.dev)
       celluloid
@@ -170,7 +170,7 @@ GEM
       archive-tar-minitar (>= 0.5.2)
       chef (>= 0.10)
       librarian (~> 0.1.0)
-    listen (1.3.1)
+    listen (1.3.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
@@ -193,7 +193,7 @@ GEM
     mixlib-config (1.1.2)
     mixlib-log (1.6.0)
     mixlib-shellout (1.2.0)
-    multi_json (1.8.0)
+    multi_json (1.7.9)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
     net-http-persistent (2.9)
@@ -235,7 +235,7 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     retryable (1.3.3)
-    ridley (1.5.3)
+    ridley (1.5.2)
       addressable
       buff-config (~> 0.2)
       buff-extensions (~> 0.3)
@@ -273,7 +273,7 @@ GEM
       nokogiri (>= 1.4.0)
       nori (~> 1.0)
       wasabi (~> 1.0)
-    serverspec (0.7.13)
+    serverspec (0.7.12)
       highline
       net-ssh
       rspec (>= 2.13.0)

@@ -55,3 +55,20 @@ node.save
 include_recipe "openstack-common"
 include_recipe "openstack-common::logging"
 include_recipe "openstack-ops-messaging::server"
+
+# process monitoring and sensu-check config
+processes = node['openstack']['mq']['mq_processes']
+
+processes.each do |process|
+  sensu_check "check_process_#{process['name']}" do
+    command "check-procs.rb -c 10 -w 10 -C 1 -W 1 -p #{process['name']}"
+    handlers ["default"]
+    standalone true
+    interval 20
+  end
+end
+
+collectd_processes "mq-processes" do
+  input processes
+  key "shortname"
+end
