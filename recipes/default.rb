@@ -26,20 +26,15 @@ node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
 # This attribute tells rabbit which interface to bind to
 node.override["openstack"]["mq"]["bind_interface"] = iface
 if node["ha_disabled"].nil?
+  # Override the attr overriden in stackforge cookbook
+  # Bind all addresses so that rabbit accept packets heading to the vip
+  node.force_override["rabbitmq"]["address"] = false
+
   node.override["openstack"]["mq"]["cluster"] = "true"
-  %w/
-    block-storage
-    compute
-    dashboard
-    identity
-    image
-    metering
-    network
-    volume
-  /.each do |s|
-    node.set['openstack'][s]['rabbit']['ha'] = true
-  end
+
+  include_recipe "ktc-openstack-ha::rabbitmq"
 end
+
 # Use the latest version
 # Override the attr overridden in the stackforge cookbook
 node.force_override['rabbitmq']['use_distro_version'] = false
