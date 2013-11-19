@@ -6,11 +6,10 @@ description      'Installs/Configures ktc-messaging'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '1.0.5'
 
-depends "ktc-openstack-ha", "~> 2.0.15"
-depends "ktc-utils", "> 0.3.1"
+depends "ktc-openstack-ha"
+depends "ktc-monitor"
+depends "ktc-utils"
 depends "openstack-common", "~> 0.4.3"
 depends "openstack-ops-messaging", "~> 7.0.0"
-depends "services", "> 1.0.6"
+depends "services"
 depends "users"
-depends "sensu"
-depends "ktc-collectd"

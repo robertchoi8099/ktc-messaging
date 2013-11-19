@@ -8,5 +8,7 @@ site :opscode
 
 metadata
 
-cookbook 'ktc-etcd'
-cookbook 'ktc-testing'
+group "integration" do
+  cookbook "etcd"
+  cookbook "ktc-testing"
+end
