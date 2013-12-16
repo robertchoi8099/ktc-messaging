@@ -52,6 +52,15 @@ include_recipe "openstack-common"
 include_recipe "openstack-common::logging"
 include_recipe "openstack-ops-messaging::server"
 
+# adjust ulimit of open file descriptors
+node.set["rabbitmq"]["max_file_descriptors"] = 102400
+
+template "/etc/default/rabbitmq-server" do
+  source "rabbitmq-server.default.erb"
+  action :create
+  notifies :restart, "service[rabbitmq-server]"
+end
+
 # process monitoring and sensu-check config
 processes = node['openstack']['mq']['mq_processes']
 
