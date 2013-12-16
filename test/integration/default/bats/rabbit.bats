@@ -7,3 +7,8 @@
 @test "rabbit is running" {
   /usr/sbin/rabbitmqctl status | grep pid
 }
+
+@test "sysctl file created" {
+  [[ -f /etc/sysctl.d/99-chef-attributes.conf ]]
+}
+
