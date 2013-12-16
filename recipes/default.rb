@@ -15,7 +15,7 @@ iface = KTC::Network.if_lookup "management"
 ip = KTC::Network.address "management"
 
 Services::Connection.new run_context: run_context
-member = Services::Member.new node.fqdn,
+member = Services::Member.new node["fqdn"],
   service: "rabbitmq",
   port: 5672,
   proto: "tcp",
