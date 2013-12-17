@@ -76,3 +76,5 @@ end
 ktc_collectd_processes "mq-processes" do
   input processes
 end
+
+include_recipe "rabbitmq::policy_management"
