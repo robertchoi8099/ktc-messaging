@@ -12,3 +12,6 @@
   [[ -f /etc/sysctl.d/99-chef-attributes.conf ]]
 }
 
+@test "mirrored queue is enabled" {
+  /usr/sbin/rabbitmqctl list_policies | grep ha-all
+}
