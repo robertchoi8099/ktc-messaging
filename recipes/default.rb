@@ -28,8 +28,8 @@ node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
 node.override["openstack"]["mq"]["bind_interface"] = iface
 if node["ha_disabled"].nil?
   # Override the attr overriden in stackforge cookbook
-  # Bind all addresses so that rabbit accept packets heading to the vip
-  node.force_override["rabbitmq"]["address"] = false
+  # Bind 0.0.0.0 so that rabbit listens to all ipv4 packets heading to the vip
+  node.force_override["rabbitmq"]["address"] = "0.0.0.0"
 
   node.override["openstack"]["mq"]["cluster"] = "true"
 
