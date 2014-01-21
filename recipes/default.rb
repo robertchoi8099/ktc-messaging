@@ -26,7 +26,8 @@ member.save
 node.default["openstack"]["mq"]["server_role"] = "ktc-messaging"
 # This attribute tells rabbit which interface to bind to
 node.override["openstack"]["mq"]["bind_interface"] = iface
-if node["ha_disabled"].nil?
+
+unless node["ha_disabled"]
   # Override the attr overriden in stackforge cookbook
   # Bind 0.0.0.0 so that rabbit listens to all ipv4 packets heading to the vip
   node.force_override["rabbitmq"]["address"] = "0.0.0.0"
