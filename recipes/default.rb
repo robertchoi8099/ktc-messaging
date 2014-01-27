@@ -7,7 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "sysctl"
 include_recipe "services"
 include_recipe "ktc-utils"
 
