@@ -7,5 +7,5 @@ default["openstack"]["mq"]["mq_processes"] = [
 ]
 
 default['rabbitmq']['tcp_listen_keepalive'] = true
-# make every queue as mirrored queue 
+# make every queue as mirrored queue
 default['rabbitmq']['policies']['ha-all']['pattern'] = "^(?!amq\\.).*"
