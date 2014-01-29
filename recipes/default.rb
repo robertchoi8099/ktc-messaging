@@ -6,6 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+chef_gem "chef-rewind"
+require 'chef/rewind'
 
 include_recipe "services"
 include_recipe "ktc-utils"
@@ -55,6 +57,10 @@ template "/etc/default/rabbitmq-server" do
   source "rabbitmq-server.default.erb"
   action :create
   notifies :restart, "service[rabbitmq-server]"
+end
+
+rewind :template => "/etc/rabbitmq/rabbitmq.config" do
+  cookbook_name "ktc-messaging"
 end
 
 # process monitoring and sensu-check config
