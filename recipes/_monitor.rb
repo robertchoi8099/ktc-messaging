@@ -1,3 +1,11 @@
+#
+# setup monitoring for messaging services
+#
+
+# we don't want to load this stuff if we don't have too
+return if node[:ktc][:messaging][:monitor] == false
+include_recipe 'ktc-monitor::client'
+
 processes = node['openstack']['mq']['mq_processes']
 
 processes.each do |process|

@@ -19,6 +19,8 @@ suites:
       - recipe[etcd::compile_time]
       - recipe[ktc-messaging]
     attributes:
+      ktc:
+        monitor: false
       etcd:
         servers:
           - 127.0.0.1
