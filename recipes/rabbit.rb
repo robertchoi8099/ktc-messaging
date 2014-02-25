@@ -2,6 +2,14 @@
 # setup rabbitmq
 #
 
+# do this here so we can controll package install without having to rewind
+# TODO: this is not platform gated.
+include_recipe 'erlang'
+apt_package 'rabbitmq' do
+  action :install
+  options '--no-triggers'
+end
+
 include_recipe 'rabbitmq'
 include_recipe 'rabbitmq::mgmt_console'
 
