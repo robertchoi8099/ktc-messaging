@@ -16,7 +16,9 @@ describe 'ktc-messaging::rabbit' do
 
     describe 'lwrps' do
       it 'does not delete the guest user' do
-        expect(@chef_run).not_to delete_rabbitmq_user('remove rabbit guest user')
+        expect(@chef_run).not_to(
+          delete_rabbitmq_user('remove rabbit guest user')
+        )
       end
 
       it "deletes a user not called 'guest'" do
