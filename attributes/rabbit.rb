@@ -14,6 +14,5 @@ default['rabbitmq']['port'] = node['openstack']['mq']['port']
 default['rabbitmq']['default_user'] = node['openstack']['mq']['user']
 default['rabbitmq']['default_pass'] = node['openstack']['mq']['user']
 
-
 # adjust ulimit of open file descriptors
 default['rabbitmq']['max_file_descriptors'] = 102_400
