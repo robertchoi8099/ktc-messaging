@@ -6,6 +6,11 @@ site :opscode
 
 metadata
 
+# This cookbook should be used temporarily until the following bug is fixed in upstream.
+# https://tickets.opscode.com/browse/COOK-4360
+# https://github.com/opscode-cookbooks/rabbitmq/pull/102
+cookbook 'rabbitmq', github: 'robertchoi8099/rabbitmq'
+
 group "integration" do
   cookbook "etcd"
   cookbook "ktc-testing"
